@@ -57,23 +57,23 @@ template "/etc/default/sickbeard" do
     group "root"
 end
 
-execute "stop-sickbeard" do
-  command "service sickbeard stop" ## only way to edit the config
-  action  :run
-  only_if  'pidof sickbeard'
-end
+# execute "stop-sickbeard" do
+#   command "service sickbeard stop" ## only way to edit the config
+#   action  :run
+#   only_if  'pidof sickbeard'
+# end
 
-template "/home/#{node['sickbeard']['user']}/.sickbeard/config.ini" do
-  source "config.ini.erb"
-  mode 0600
-  owner node["sickbeard"]["user"]
-  group node["sickbeard"]["group"]
-  notifies :restart, 'service[sickbeard]'
-end
+# template "/home/#{node['sickbeard']['user']}/.sickbeard/config.ini" do
+#   source "config.ini.erb"
+#   mode 0600
+#   owner node["sickbeard"]["user"]
+#   group node["sickbeard"]["group"]
+#   notifies :restart, 'service[sickbeard]'
+# end
 
-service "sickbeard" do
-  action :start
-end
+# service "sickbeard" do
+#   action :start
+# end
 
 bash "update-rc.d" do
   code "update-rc.d sickbeard defaults"
