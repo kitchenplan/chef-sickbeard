@@ -20,8 +20,8 @@ nzb_method = <%= node["sickbeard"]["nzb_method"] %>
 usenet_retention = <%= node["sickbeard"]["usenet_retention"] %>
 search_frequency = <%= node["sickbeard"]["search_frequency"] %>
 download_propers = 1
-quality_default = 3
-status_default = 5
+quality_default = 500
+status_default = 6
 flatten_folders_default = 0
 provider_order = <%= node['sickbeard']['provider_order'] %>
 version_notify = 1
@@ -39,7 +39,7 @@ metadata_wdtv = 0|0|0|0|0|0
 metadata_tivo = 0|0|0|0|0|0
 metadata_synology = 0|0|0|0|0|0
 cache_dir = cache
-root_dirs = ""
+root_dirs = 0|/home/roderik/Downloads/complete/Episodes
 tv_download_dir = ""
 keep_processed_dir = 1
 move_associated_files = 0
