@@ -36,6 +36,13 @@ directory "/opt/sickbeard/autoProcessTV" do
     recursive true
 end
 
+template "/opt/sickbeard/autoProcessTV/autoProcessTV.cfg" do
+    source "autoProcessTV.cfg.erb"
+    mode 0777
+    owner node["sickbeard"]["user"]
+    group node["sickbeard"]["group"]
+end
+
 template "/etc/init.d/sickbeard" do
     source "sickbeard.erb"
     mode 0755
