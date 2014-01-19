@@ -28,6 +28,14 @@ git "#{node['sickbeard']['location']}" do
   action :sync
 end
 
+directory "/opt/sickbeard/autoProcessTV" do
+    owner "roderik"
+    group "roderik"
+    mode "0777"
+    action :create
+    recursive true
+end
+
 template "/etc/init.d/sickbeard" do
     source "sickbeard.erb"
     mode 0755
