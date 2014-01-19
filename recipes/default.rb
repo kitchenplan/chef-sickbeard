@@ -45,7 +45,7 @@ end
 execute "stop-sickbeard" do
   command "service sickbeard stop" ## only way to edit the config
   action  :run
-  only_if  'pidof couchpotato'
+  only_if  'pidof sickbeard'
 end
 
 template "/home/#{node['sickbeard']['user']}/.sickbeard/config.ini" do

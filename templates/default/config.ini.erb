@@ -1,14 +1,16 @@
 [General]
+config_version = 3
 log_dir = Logs
 web_port = 8081
 web_host = 0.0.0.0
-web_ipv6 = 0
+web_ipv6 = 1
 web_log = 0
 web_root = ""
 web_username = ""
 web_password = ""
-use_api = 0
-api_key = ""
+anon_redirect = http://derefer.me/?
+use_api = 1
+api_key = d19fc295b9b0c1ae067b8df9af06ccc2
 enable_https = 0
 https_cert = server.crt
 https_key = server.key
@@ -23,14 +25,14 @@ status_default = 5
 flatten_folders_default = 0
 provider_order = <%= node['sickbeard']['provider_order'] %>
 version_notify = 1
-naming_pattern = %SN - %Sx%0E - %EN
+naming_pattern = Season %0S/%S.N.S%0SE%0E.%Q.N-%RG
 naming_custom_abd = 0
 naming_abd_pattern = %SN - %A-D - %EN
 naming_multi_ep = 1
 launch_browser = 1
 use_banner = 0
 use_listview = 0
-metadata_xbmc = 0|0|0|0|0|0
+metadata_xbmc = 1|1|1|1|1|1
 metadata_mediabrowser = 0|0|0|0|0|0
 metadata_ps3 = 0|0|0|0|0|0
 metadata_wdtv = 0|0|0|0|0|0
@@ -47,13 +49,16 @@ create_missing_show_dirs = 0
 add_shows_wo_dir = 0
 extra_scripts = ""
 git_path = ""
-ignore_words = "german,french,core2hd,dutch,swedish"
-config_version = 1
+ignore_words = "german,french,core2hd,swedish,480p"
 [Blackhole]
 nzb_dir = ""
 torrent_dir = ""
 [EZRSS]
 ezrss = 0
+[HDBITS]
+hdbits = 0
+hdbits_username = ""
+hdbits_passkey = ""
 [TVTORRENTS]
 tvtorrents = 0
 tvtorrents_digest = ""
@@ -61,24 +66,19 @@ tvtorrents_hash = ""
 [BTN]
 btn = 0
 btn_api_key = ""
+[TorrentLeech]
+torrentleech = 0
+torrentleech_key = ""
 [NZBs]
 nzbs = 0
 nzbs_uid = ""
 nzbs_hash = ""
-[NZBsRUS]
-nzbsrus = 0
-nzbsrus_uid = ""
-nzbsrus_hash = ""
-[NZBMatrix]
-nzbmatrix = 0
-nzbmatrix_username = ""
-nzbmatrix_apikey = ""
-[Newzbin]
-newzbin = 0
-newzbin_username = ""
-newzbin_password = ""
 [Womble]
 womble = 1
+[omgwtfnzbs]
+omgwtfnzbs = 0
+omgwtfnzbs_username = ""
+omgwtfnzbs_apikey = ""
 [SABnzbd]
 sab_username = <%= node['sickbeard']['sab_username'] %>
 sab_password = <%= node['sickbeard']['sab_password'] %>
@@ -95,6 +95,7 @@ xbmc_notify_onsnatch = 0
 xbmc_notify_ondownload = 0
 xbmc_update_library = 0
 xbmc_update_full = 0
+xbmc_update_onlyfirst = 0
 xbmc_host = ""
 xbmc_username = ""
 xbmc_password = ""
@@ -126,12 +127,6 @@ twitter_notify_ondownload = 0
 twitter_username = ""
 twitter_password = ""
 twitter_prefix = Sick Beard
-[Notifo]
-use_notifo = 0
-notifo_notify_onsnatch = 0
-notifo_notify_ondownload = 0
-notifo_username = ""
-notifo_apisecret = ""
 [Boxcar]
 use_boxcar = 0
 boxcar_notify_onsnatch = 0
@@ -153,6 +148,11 @@ nmj_database = ""
 nmj_mount = ""
 [Synology]
 use_synoindex = 0
+[NMJv2]
+use_nmjv2 = 0
+nmjv2_host = ""
+nmjv2_database = ""
+nmjv2_dbloc = ""
 [Trakt]
 use_trakt = 0
 trakt_username = ""
